@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface-dim": "#131313",
+                "secondary": "#c6c6c7",
+                "tertiary-fixed": "#cbe6ff",
+                "surface-tint": "#ffb4ac",
+                "primary-container": "#e01b24",
+                "on-primary-fixed-variant": "#93000e",
+                "on-surface-variant": "#e7bdb8",
+                "inverse-surface": "#e5e2e1",
+                "on-error-container": "#ffdad6",
+                "on-secondary-container": "#b4b5b5",
+                "inverse-primary": "#c00016",
+                "surface-variant": "#353534",
+                "on-tertiary-container": "#f3f8ff",
+                "primary-fixed": "#ffdad6",
+                "on-background": "#e5e2e1",
+                "tertiary-fixed-dim": "#90cdff",
+                "on-secondary-fixed-variant": "#454747",
+                "inverse-on-surface": "#313030",
+                "on-tertiary": "#003450",
+                "background": "#131313",
+                "on-tertiary-fixed": "#001e30",
+                "tertiary-container": "#0078b2",
+                "secondary-fixed": "#e2e2e2",
+                "primary-fixed-dim": "#ffb4ac",
+                "error-container": "#93000a",
+                "primary": "#ffb4ac",
+                "outline": "#ad8884",
+                "surface-container": "#201f1f",
+                "surface-container-low": "#1c1b1b",
+                "on-primary-container": "#fff6f5",
+                "surface-container-high": "#2a2a2a",
+                "on-secondary": "#2f3131",
+                "on-error": "#690005",
+                "on-tertiary-fixed-variant": "#004b71",
+                "surface-container-lowest": "#0e0e0e",
+                "surface-bright": "#3a3939",
+                "surface-container-highest": "#353534",
+                "on-primary-fixed": "#410003",
+                "secondary-fixed-dim": "#c6c6c7",
+                "on-secondary-fixed": "#1a1c1c",
+                "secondary-container": "#454747",
+                "surface": "#131313",
+                "on-primary": "#690007",
+                "tertiary": "#90cdff",
+                "error": "#ffb4ab",
+                "outline-variant": "#5d3f3c",
+                "on-surface": "#e5e2e1"
+            },
+            "borderRadius": {
+                "none": "0px",
+                "DEFAULT": "0px",
+                "lg": "0px",
+                "xl": "0px",
+                "full": "9999px"
+            },
+            "fontFamily": {
+                "headline": ["Inter", "sans-serif"],
+                "body": ["Inter", "sans-serif"],
+                "label": ["Inter", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #131313;
+            color: #E5E2E1;
+            font-family: 'Inter', sans-serif;
+        }
+        /* Overriding any accidental rounding */
+        * { border-radius: 0 !important; }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased overflow-hidden">
+<!-- SideNavBar Component -->
+<nav class="flex flex-col h-screen fixed left-0 top-0 h-full w-64 left-0 top-0 bg-[#0E0E0E] z-50">
+<div class="px-6 py-8 flex flex-col gap-1">
+<div class="flex items-center gap-3 mb-8">
+<img alt="La Rapaziada Logo" class="w-10 h-10 object-cover border border-on-surface-variant/20" data-alt="Minimalist geometric logo in bold white and red on a pitch black background, brutalist graphic design style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAd9eL5ZWM1CG7MRhCsDsTLcqfhBOui7cRIZymtmJMDAIyxChf9ptt5ocEQzhF_waNjqKUxfJ_XYTQS1lyrm5yXd3diuLJL3EVLtFKykaj60MWdW8ezhZB016HZwZCNaPAOgRV5jjdO4T-3QfnrwotltgibQ--Q37CAPRrASldRjSbIKm-ma1gdu0ccXOZlbSBlIL3atNhE0V7ApdTzvnQKslSS7IfCxNDO7ZIljlmkpxiNmo3ERZtN7zqlbd2hNT6DyPYlxJkGO8"/>
+<div>
+<h1 class="text-xl font-black text-[#E5E2E1] leading-none uppercase tracking-tighter">La Rapaziada</h1>
+<p class="text-[0.68rem] font-bold uppercase tracking-widest text-[#E01B24]">Music CRM</p>
+</div>
+</div>
+<div class="space-y-1">
+<!-- Contacts (Active) -->
+<a class="flex items-center gap-4 px-4 py-3 border-l-4 border-[#E01B24] text-[#E5E2E1] bg-[#1C1B1B] font-bold transition-all group" href="#">
+<span class="material-symbols-outlined text-[#E01B24]">person</span>
+<span class="text-[0.68rem] font-bold uppercase tracking-widest">Contacts</span>
+</a>
+<!-- Groups -->
+<a class="flex items-center gap-4 px-4 py-3 text-[#E5E2E1]/60 hover:bg-[#1C1B1B] transition-colors group" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="text-[0.68rem] font-bold uppercase tracking-widest">Groups</span>
+</a>
+<!-- Campaigns -->
+<a class="flex items-center gap-4 px-4 py-3 text-[#E5E2E1]/60 hover:bg-[#1C1B1B] transition-colors group" href="#">
+<span class="material-symbols-outlined">campaign</span>
+<span class="text-[0.68rem] font-bold uppercase tracking-widest">Campaigns</span>
+</a>
+<!-- History -->
+<a class="flex items-center gap-4 px-4 py-3 text-[#E5E2E1]/60 hover:bg-[#1C1B1B] transition-colors group" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="text-[0.68rem] font-bold uppercase tracking-widest">History</span>
+</a>
+</div>
+</div>
+<div class="mt-auto px-6 pb-8">
+<button class="w-full bg-[#E01B24] text-white py-4 font-black uppercase tracking-tighter text-sm flex items-center justify-center gap-2 hover:bg-[#93000E] transition-colors scale-98 active:scale-95">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'wght' 700;">add</span>
+                Add Record
+            </button>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen flex flex-col bg-surface relative">
+<!-- TopAppBar Component -->
+<header class="flex justify-between items-center w-full px-6 py-4 bg-[#131313] sticky top-0 z-40">
+<div class="flex items-center gap-4">
+<h2 class="text-2xl font-black text-[#E5E2E1] tracking-[-0.02em] uppercase">Contacts</h2>
+<div class="h-4 w-px bg-outline-variant/30 hidden md:block"></div>
+<div class="hidden md:flex items-center gap-2 text-on-surface-variant text-xs font-medium">
+<span class="text-[#E01B24]">1,284</span>
+<span class="uppercase tracking-widest opacity-60">Total Artists</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-xl">search</span>
+<input class="bg-surface-container-low border-b border-outline-variant/30 text-on-surface px-10 py-2 text-xs font-bold focus:outline-none focus:border-[#E01B24] w-64 placeholder:text-on-surface-variant/40" placeholder="SEARCH DATABASE..." type="text"/>
+</div>
+<button class="text-[#E5E2E1] hover:bg-[#3A3939]/70 p-2 transition-opacity duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-10 h-10 border border-outline-variant/30 p-0.5">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="Gritty black and white portrait of a music producer in a dark studio setting, dramatic lighting, high contrast" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCST90q2g1VBGcan-lqn_T1ESeiYIsgLL8fSedyUO7c59N2FmRfTXagcC_2UKEkhR4JDaTCAQurYBPJnJHGiouz3gQAPHDg4Xh2lUmXUvQjDsWbOpjMSLuTOl4WzOjytNUd79xHQuQDebfmnoeo1_9EN7gaj1nSka4BDj2ltZQ-QEz5ClPjsfJHUDSJUxKRtvjgVjbasdYt72y_8EjecnKuCQyMu0o9kSyc8iaNusAJLKGKzdcQVza2tl7LmR5j-Yu5HJk8UamP1qs"/>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<section class="p-8 flex-1 overflow-y-auto">
+<!-- Filters/Controls -->
+<div class="flex flex-wrap items-end justify-between gap-6 mb-12 border-b border-outline-variant/10 pb-8">
+<div class="flex gap-8">
+<div>
+<p class="text-[0.6rem] font-black uppercase tracking-[0.2em] text-[#E01B24] mb-2">View Mode</p>
+<div class="flex bg-surface-container-lowest border border-outline-variant/20">
+<button class="px-4 py-2 bg-[#E01B24] text-white font-bold text-[0.68rem] uppercase">List</button>
+<button class="px-4 py-2 text-on-surface-variant/60 font-bold text-[0.68rem] uppercase hover:bg-surface-container-low transition-colors">Grid</button>
+</div>
+</div>
+<div>
+<p class="text-[0.6rem] font-black uppercase tracking-[0.2em] text-[#E01B24] mb-2">Sort By</p>
+<button class="px-4 py-2 border border-outline-variant/20 flex items-center gap-4 group">
+<span class="text-[0.68rem] font-bold uppercase tracking-widest">Recently Added</span>
+<span class="material-symbols-outlined text-xs">expand_more</span>
+</button>
+</div>
+</div>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-surface-container-high text-[0.6rem] font-bold uppercase tracking-tighter">Filter: Labels</span>
+<span class="px-3 py-1 bg-surface-container-high text-[0.6rem] font-bold uppercase tracking-tighter">Filter: Producers</span>
+</div>
+</div>
+<!-- Brutalist Contacts List -->
+<div class="w-full">
+<div class="grid grid-cols-12 gap-0 border-b-2 border-on-surface uppercase text-[0.65rem] font-black tracking-[0.15em] py-3 px-4 text-on-surface-variant/70">
+<div class="col-span-4">Artist / Name</div>
+<div class="col-span-2">Group Badge</div>
+<div class="col-span-2">Handle</div>
+<div class="col-span-3">Contact Info</div>
+<div class="col-span-1 text-right">Action</div>
+</div>
+<!-- Contact Rows -->
+<div class="divide-y divide-outline-variant/10">
+<!-- Entry 1 -->
+<div class="grid grid-cols-12 gap-0 items-center py-6 px-4 hover:bg-surface-container-low transition-colors group">
+<div class="col-span-4 flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-highest flex-shrink-0">
+<img alt="Artist Profile" class="w-full h-full object-cover" data-alt="Close up portrait of a DJ with neon reflections on sunglasses, dark background, cinematic music industry aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaaGexaePdICSG6qsQl764MyaJsa45qB13iDcL6qyzkc7tXdMAA0F9IFsTaqKn_hJ3a4MRozmaVxJHMkpmX12vASEbNTZvwB4OYoggEVp9bVq4biWHTt-_cREwB0J5tnocLv4zqz__KlpgZ4Y3YnmGZ-BsfZggpFcgV8DywWSIoXNgP7o189MOhm9Izce_dCsi8f7553yiDGV0SkG3QI1gNVykeE5csQbaJfsL0f3qk74zSUejPdoZEI4k_I1SqMktjqz8cPDtymA"/>
+</div>
+<div>
+<h4 class="text-base font-black tracking-tight uppercase group-hover:text-[#E01B24] transition-colors">MC Zagaia</h4>
+<p class="text-[0.6rem] uppercase tracking-widest text-on-surface-variant/50">São Paulo, BR</p>
+</div>
+</div>
+<div class="col-span-2">
+<span class="inline-block px-3 py-1 bg-white text-black text-[0.6rem] font-black uppercase tracking-tighter">Confirmed</span>
+</div>
+<div class="col-span-2">
+<p class="text-[0.68rem] font-bold text-[#E01B24]">@mczagaia_ofc</p>
+</div>
+<div class="col-span-3">
+<div class="flex flex-col">
+<span class="text-xs font-medium tracking-tight">zagaia.booking@mgmt.com</span>
+<span class="text-[0.65rem] opacity-50 font-bold">+55 11 99872-1243</span>
+</div>
+</div>
+<div class="col-span-1 text-right">
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Entry 2 -->
+<div class="grid grid-cols-12 gap-0 items-center py-6 px-4 hover:bg-surface-container-low transition-colors group">
+<div class="col-span-4 flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-highest flex-shrink-0">
+<img alt="Artist Profile" class="w-full h-full object-cover" data-alt="Underground hip hop artist in a graffiti-covered alley, gritty film grain texture, high contrast shadow play" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEWkfa9H-533LH6K7JMB3NNAQtSwz9ZTdiibMwm-BE2u3b490SbfwksRoYE0trGp8W6tsew-fE4Wwwg8JYpfWIHxZCjPXrEAEMT7aWmkKUamHr5jDCDZTjuyHbRgQA32MdsONUOGckygLcxvPTKQVRRaAL_fT6ckp5TvUmoHoyY9dOkkZoYTJUVvxHC9tVI8OkznEObqCO8xjkJScbbh3fclJ7uHSYk3lfSpS5uhO8FxiKQl4W3Ptj2jw1fgE3tLB6Gjzq_iAskVk"/>
+</div>
+<div>
+<h4 class="text-base font-black tracking-tight uppercase group-hover:text-[#E01B24] transition-colors">Vila Records</h4>
+<p class="text-[0.6rem] uppercase tracking-widest text-on-surface-variant/50">Producer / Label</p>
+</div>
+</div>
+<div class="col-span-2">
+<span class="inline-block px-3 py-1 border border-on-surface-variant/30 text-on-surface-variant text-[0.6rem] font-black uppercase tracking-tighter">Pending</span>
+</div>
+<div class="col-span-2">
+<p class="text-[0.68rem] font-bold text-[#E01B24]">@vilarecords</p>
+</div>
+<div class="col-span-3">
+<div class="flex flex-col">
+<span class="text-xs font-medium tracking-tight">contact@vilarec.br</span>
+<span class="text-[0.65rem] opacity-50 font-bold">+55 11 94432-8812</span>
+</div>
+</div>
+<div class="col-span-1 text-right">
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Entry 3 -->
+<div class="grid grid-cols-12 gap-0 items-center py-6 px-4 hover:bg-surface-container-low transition-colors group">
+<div class="col-span-4 flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-highest flex-shrink-0">
+<img alt="Artist Profile" class="w-full h-full object-cover" data-alt="Electronic music performer on stage with intense red strobe lighting, silhouettes, atmospheric smoke effect" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB15FjwlodO-0zM37EZjRup6ldjslnOfYZyXazHVfkP9BN49SQMXvID-LNvWKZPKP2vqhp3QCo6fKJj9YMtTN_8-0IGSw_C7kzx9nHRGJ8DG_1-YLjYkX1f5y6JHAnwaVlIF_DLJ-RZzRsUdb3MQLH0lEJWyG9gsVzhoGW0BGFuPgDKU0C4_VcO5ink0n9CdJVcwGwafXUP8lPckDXmtL7qj6gwCyMPTRv5aKIJbynaydHuN0GOV0D2U1_AyhXfjG2Y0DNuKVz0hS4"/>
+</div>
+<div>
+<h4 class="text-base font-black tracking-tight uppercase group-hover:text-[#E01B24] transition-colors">DJ Batata</h4>
+<p class="text-[0.6rem] uppercase tracking-widest text-on-surface-variant/50">Rio de Janeiro, BR</p>
+</div>
+</div>
+<div class="col-span-2">
+<span class="inline-block px-3 py-1 bg-[#E01B24] text-white text-[0.6rem] font-black uppercase tracking-tighter">Cancelled</span>
+</div>
+<div class="col-span-2">
+<p class="text-[0.68rem] font-bold text-[#E01B24]">@djbatata_baile</p>
+</div>
+<div class="col-span-3">
+<div class="flex flex-col">
+<span class="text-xs font-medium tracking-tight">batata.prods@outlook.com</span>
+<span class="text-[0.65rem] opacity-50 font-bold">+55 21 98823-9900</span>
+</div>
+</div>
+<div class="col-span-1 text-right">
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Entry 4 -->
+<div class="grid grid-cols-12 gap-0 items-center py-6 px-4 hover:bg-surface-container-low transition-colors group">
+<div class="col-span-4 flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-highest flex-shrink-0">
+<img alt="Artist Profile" class="w-full h-full object-cover" data-alt="Woman vocalist with vintage microphone, moody low-key studio lighting, stark contrast, urban vibes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJezF1-wtwhauzNWnUmLyV7IbpaxLm0MG77ybP6n3gl6kORXh8KyV0VGeNigdWc3nCxmNsxi8bPeHi702Ql0-JOVy5criEHXOSgUkspZ5YYN0_67y1GO8Fgp2jaN_DU1QsUdkrWbxvu6LFwaZNPsj0V2Dj5szC4K5TxgAoDhqUsh-VD0UawHsog5gG4QzeoWaMaMz0rXyI5pTp4swnUr5C3b4iuoCGvyMWcNvUHsEoV-1iw9s_yvlmVXJbGfTKlOMy57gTLuGrrTE"/>
+</div>
+<div>
+<h4 class="text-base font-black tracking-tight uppercase group-hover:text-[#E01B24] transition-colors">Nara Beats</h4>
+<p class="text-[0.6rem] uppercase tracking-widest text-on-surface-variant/50">Vocalist / Composer</p>
+</div>
+</div>
+<div class="col-span-2">
+<span class="inline-block px-3 py-1 bg-white text-black text-[0.6rem] font-black uppercase tracking-tighter">Confirmed</span>
+</div>
+<div class="col-span-2">
+<p class="text-[0.68rem] font-bold text-[#E01B24]">@narabeats_music</p>
+</div>
+<div class="col-span-3">
+<div class="flex flex-col">
+<span class="text-xs font-medium tracking-tight">nara@indielabel.com</span>
+<span class="text-[0.65rem] opacity-50 font-bold">+55 11 97722-1144</span>
+</div>
+</div>
+<div class="col-span-1 text-right">
+<button class="p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Stats Bar / Footer -->
+<div class="mt-12 flex justify-between items-center text-[0.6rem] font-black uppercase tracking-[0.3em] text-on-surface-variant/30">
+<p>Showing 1-50 of 1,284 records</p>
+<div class="flex gap-4">
+<button class="hover:text-[#E01B24] transition-colors">Prev</button>
+<span class="text-[#E01B24]">01</span>
+<button class="hover:text-[#E01B24] transition-colors">02</button>
+<button class="hover:text-[#E01B24] transition-colors">03</button>
+<button class="hover:text-[#E01B24] transition-colors">Next</button>
+</div>
+</div>
+</section>
+<!-- Floating Action Button (FAB) -->
+<button class="fixed bottom-10 right-10 w-16 h-16 bg-[#E01B24] text-white flex items-center justify-center hover:outline hover:outline-2 hover:outline-white transition-all z-50 group active:scale-90">
+<span class="material-symbols-outlined text-4xl group-hover:rotate-90 transition-transform duration-300" style="font-variation-settings: 'wght' 700;">add</span>
+</button>
+</main>
+</body></html>

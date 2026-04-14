@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Band CRM – Instagram Autosend",
+  "version": "1.0",
+  "description": "Companheiro do Band CRM: envia DMs no Instagram automaticamente.",
+  "permissions": ["storage", "clipboardWrite"],
+  "host_permissions": [
+    "https://www.instagram.com/*",
+    "http://localhost:5173/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://localhost:5173/*"],
+      "js": ["content-crm.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://www.instagram.com/*"],
+      "js": ["content-instagram.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
