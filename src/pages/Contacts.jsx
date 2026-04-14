@@ -80,6 +80,14 @@ export default function Contacts() {
     fetchContacts();
   }
 
+  async function toggleBlacklist(id, currentStatus) {
+    await supabase.from("contacts").update({ is_blacklisted: !currentStatus }).eq("id", id);
+    setContacts((prev) =>
+      prev.map((c) => (c.id === id ? { ...c, is_blacklisted: !currentStatus } : c)),
+    );
+    setActionMenu(null);
+  }
+
   function toggleSelect(id) {
     setSelected((prev) => {
       const next = new Set(prev);
@@ -300,9 +308,16 @@ export default function Contacts() {
                       avatarUrl={contact.avatar_url}
                     />
                     <div className="min-w-0">
-                      <h4 className="text-sm font-black uppercase tracking-tight group-hover:text-primary-container transition-colors truncate">
-                        {contact.name}
-                      </h4>
+                      <div className="flex items-center gap-2">
+                        <h4 className={`text-sm font-black uppercase tracking-tight transition-colors truncate ${contact.is_blacklisted ? 'text-red-500 line-through opacity-80' : 'group-hover:text-primary-container'}`}>
+                          {contact.name}
+                        </h4>
+                        {contact.is_blacklisted && (
+                          <span className="text-[0.55rem] font-black bg-red-500/10 text-red-500 border border-red-500/20 px-1.5 py-0.5 rounded leading-none uppercase tracking-widest flex-shrink-0">
+                            Blacklist
+                          </span>
+                        )}
+                      </div>
                       <p className="text-[0.6rem] text-on-surface/30 uppercase tracking-wide truncate max-w-[160px] mt-0.5">
                         {contact.contact_groups?.length
                           ? contact.contact_groups.map((cg) => cg.groups?.name).filter(Boolean).join(', ')
@@ -409,6 +424,19 @@ export default function Contacts() {
                           edit
                         </span>
                         Editar
+                      </button>
+                      <button
+                        onClick={() => toggleBlacklist(contact.id, contact.is_blacklisted)}
+                        className={`w-full text-left px-4 py-3 text-xs font-bold uppercase tracking-widest transition-colors flex items-center gap-2 ${
+                          contact.is_blacklisted 
+                            ? "text-on-surface/70 hover:bg-surface-bright hover:text-on-surface" 
+                            : "text-red-500 hover:bg-red-500/10"
+                        }`}
+                      >
+                        <span className="material-symbols-outlined text-sm">
+                          {contact.is_blacklisted ? "restore" : "block"}
+                        </span>
+                        {contact.is_blacklisted ? "Restaurar" : "Blacklist"}
                       </button>
                       <button
                         onClick={() => handleDelete(contact.id)}
